@@ -7,3 +7,5 @@ Work in progress for 3D game
 - WASD to fly
 - Mouse to look around
 - SPACE and CTRL to go up and down
+- Z to release mouse
+- ESC to end
