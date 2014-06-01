@@ -1,19 +1,27 @@
-import peasy.*;
+import java.awt.*;
 
-PeasyCam cam;
 Map map = new Map(600, 300);
+Player player = new Player();
+ArrayList keys = new ArrayList();
 
 void setup() {
   size(600, 600, P3D);
-  cam = new PeasyCam(this, 500);
   noiseDetail(3, 0.5);
-  frameRate(60);
+  noCursor();
+  
+  try {
+    player.rob = new Robot();
+  }
+  catch (Exception e) {
+    exit();
+  }
 }
 
 void draw() {
   background(204);
   lights();
   stroke(0);
+  player.update();
   for (int x = 0; x < map.points.length; x++) {
     for (int y = 0; y < map.points[0].length; y++) {
       point(x, map.points[x][y], y);
@@ -22,8 +30,15 @@ void draw() {
 }
 
 void keyPressed() {
-  noiseSeed(int(random(600)));
-  noiseDetail(3, 0.5);
-  map.generate(600, 300);
+  if (!keys.contains(keyCode)) keys.add(keyCode);
+  if (key == 'f') map.generate(600, 300);
 }
 
+void keyReleased() {
+  int index = keys.indexOf(keyCode);
+  while (index != -1) {
+    keys.remove(index);
+    index = keys.indexOf(keyCode);
+  }
+  if (keyCode == 90) player.grab = player.grab? false: true;
+}
