@@ -22,13 +22,7 @@ void draw() {
   lights();
   stroke(0);
   player.update();
-  beginShape();
-  for (int x = 0; x < map.points.length; x++) {
-    for (int y = 0; y < map.points[0].length; y++) {
-      point(x, map.points[x][y], y);
-    }
-  }
-  endShape();
+  shape(map.terrain, 0, 0);
 }
 
 void keyPressed() {
