@@ -8,6 +8,8 @@ class Map {
   }
   
   void generate(int square, int max) {
+    noiseSeed(int(random(255)));
+    noiseDetail(3, 0.5);
     float[][] output = new float[square][square];
     for (int x = 0; x < square; x++) {
       for (int y = 0; y < square; y++) {

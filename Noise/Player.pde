@@ -46,6 +46,12 @@ class Player {
     if (keys.contains(68)) yDir = -1;
     if (keys.contains(83)) xDir = -1;
     if (keys.contains(65)) yDir = 1;
+    
+    if (abs(xDir) + abs(yDir) > 0) {
+      float walkAngle = headingX + (PI / -2 + atan2(xDir, yDir));
+      x = x + (20 * cos(walkAngle));
+      z = z + (20 * sin(walkAngle));
+    }
   }
   
 }

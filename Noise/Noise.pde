@@ -31,7 +31,7 @@ void draw() {
 
 void keyPressed() {
   if (!keys.contains(keyCode)) keys.add(keyCode);
-  if (key == 'f') map.generate(600, 300);
+  if (keyCode == 70) map.generate(600, 300);
 }
 
 void keyReleased() {
