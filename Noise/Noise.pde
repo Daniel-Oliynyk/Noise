@@ -5,9 +5,10 @@ PeasyCam cam;
 
 void setup() {
   size(600, 600, P3D);
-  map = generate(600, 600);
+  map = generate(600, 300);
   cam = new PeasyCam(this, 500);
-  frameRate(40);
+  noiseDetail(3, 0.5);
+  frameRate(60);
 }
 
 void draw() {
@@ -23,7 +24,8 @@ void draw() {
 
 void keyPressed() {
   noiseSeed(int(random(600)));
-  map = generate(600, 600);
+  noiseDetail(3, 0.5);
+  map = generate(600, 300);
 }
 
 float[][] generate(int square, int max) {
