@@ -1,11 +1,10 @@
 import peasy.*;
 
-float[][] map;
 PeasyCam cam;
+Map map = new Map(600, 300);
 
 void setup() {
   size(600, 600, P3D);
-  map = generate(600, 300);
   cam = new PeasyCam(this, 500);
   noiseDetail(3, 0.5);
   frameRate(60);
@@ -15,9 +14,9 @@ void draw() {
   background(204);
   lights();
   stroke(0);
-  for (int x = 0; x < map.length; x++) {
-    for (int y = 0; y < map[0].length; y++) {
-      point(x, map[x][y], y);
+  for (int x = 0; x < map.points.length; x++) {
+    for (int y = 0; y < map.points[0].length; y++) {
+      point(x, map.points[x][y], y);
     }
   }
 }
@@ -25,15 +24,6 @@ void draw() {
 void keyPressed() {
   noiseSeed(int(random(600)));
   noiseDetail(3, 0.5);
-  map = generate(600, 300);
+  map.generate(600, 300);
 }
 
-float[][] generate(int square, int max) {
-  float[][] output = new float[square][square];
-  for (int x = 0; x < square; x++) {
-    for (int y = 0; y < square; y++) {
-      output[x][y] = noise(x * 0.01, y * 0.01) * max;
-    }
-  }
-  return output;
-}
