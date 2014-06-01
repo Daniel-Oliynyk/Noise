@@ -1,13 +1,21 @@
+import peasy.*;
+
 float[][] map;
+
+PeasyCam cam;
 
 void setup() {
   size(600, 600, P3D);
   map = generate(600, 600);
+  cam = new PeasyCam(this, 500);
 }
 
 void draw() {
   background(0);
   lights();
+  
+  //camera(-100, -100, -50, width/ 2, height / 2, 50, 0, 0, 1);
+  
   stroke(255);
   for (int x = 0; x < map.length; x++) {
     for (int y = 0; y < map[0].length; y++) {
