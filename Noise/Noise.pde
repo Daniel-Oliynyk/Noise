@@ -5,6 +5,8 @@ void setup() {
   map = generate(600, 255);
 }
 
+// test
+
 void draw() {
   background(0);
   for (int x = 0; x < map.length; x++) {
