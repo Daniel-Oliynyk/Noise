@@ -3,11 +3,7 @@ class Map {
   float[][] points;
   
   Map(int square, int max) {
-<<<<<<< HEAD
-    terrain = createShape();
-=======
     points = new float[square][square];
->>>>>>> 2f01cfd12b15a5b23d7a26115f880117d1ae65a2
     generate(square, max);
   }
   

@@ -9,7 +9,6 @@ class Player {
   void update() {
     float tempRadX = PI / 600 * (mouseX - 300);
     float headingX = (perRadX + tempRadX) % (PI * 2);
-    println((PI / 2) % (PI * 2));
     
     float tempRadY = PI / 600 * (mouseY - 300);
     float headingY = (perRadY + tempRadY) % (PI * 2);
