@@ -1,21 +1,20 @@
 class Map {
   
-  PShape terrain;
+  float[][] points;
   
   Map(int square, int max) {
+    points = new float[square][square];
     generate(square, max);
-    terrain = createShape();
   }
   
   void generate(int square, int max) {
     noiseSeed(int(random(255)));
     noiseDetail(3, 0.5);
-    terrain.beginShape(QUAD);
+    float[][] output = new float[square][square];
     for (int x = 0; x < square; x++) {
       for (int y = 0; y < square; y++) {
-        terrain.vertex(x, noise(x * 0.01, y * 0.01) * max, y);
+        points[x][y] = noise(x * 0.01, y * 0.01) * max;
       }
     }
-    terrain.endShape(CLOSE);
   }
 }
