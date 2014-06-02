@@ -18,7 +18,7 @@ void setup() {
 }
 
 void draw() {
-  background(204);
+  background(180);
   lights();
   stroke(0);
   player.update();
