@@ -3,8 +3,8 @@ class Map {
   PShape terrain;
   
   Map(int square, int max) {
-    generate(square, max);
     terrain = createShape();
+    generate(square, max);
   }
   
   void generate(int square, int max) {
