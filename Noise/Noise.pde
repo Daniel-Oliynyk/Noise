@@ -23,8 +23,11 @@ void draw() {
   stroke(0);
   player.update();
   for (int x = 0; x < map.points.length; x++) {
-    for (int y = 0; y < map.points[0].length; y = y + int(dist(x, map.points[x][y], y, player.x, player.y, player.z)) / 100) {
+    int yInc = 1;
+    for (int y = 0; y < map.points[0].length; y = y + yInc) {
       point(x, map.points[x][y], y);
+      yInc = int(dist(x, map.points[x][y], y, player.x, player.y, player.z)) / 100;
+      if(yInc <= 0) yInc = 1;
     }
   }
 }
