@@ -22,12 +22,12 @@ void draw() {
   lights();
   stroke(0);
   player.update();
-  for (int x = 0; x < map.points.length; x++) {
-    int yInc = 1;
-    for (int y = 0; y < map.points[0].length; y = y + yInc) {
+  int inc = 1;
+  for (int x = 0; x < map.points.length; x = x + inc) {
+    for (int y = 0; y < map.points[0].length; y = y + inc) {
       point(x, map.points[x][y], y);
-      yInc = int(dist(x, map.points[x][y], y, player.x, player.y, player.z)) / 100;
-      if(yInc <= 0) yInc = 1;
+      inc = int(dist(x, map.points[x][y], y, player.x, player.y, player.z)) / 100;
+      if(inc <= 0) inc = 1;
     }
   }
 }
