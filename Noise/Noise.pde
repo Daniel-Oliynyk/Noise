@@ -21,11 +21,11 @@ void setup() {
 }
 
 void draw() {
-  background(180);
+  background(#5CAFF7);
   lights();
   player.update();
   
-  fill(#1CFAE9);
+  fill(#1986E6);
   pushMatrix();
   translate(player.x, 300, player.z);
   box(renderDistance * 2, 275, renderDistance * 2);
