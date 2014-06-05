@@ -9,6 +9,7 @@ int maxHeight = 300;
 void setup() {
   size(600, 600, OPENGL);
   noiseDetail(3, 0.5);
+  noStroke();
   noCursor();
   
   try {
@@ -30,7 +31,7 @@ void draw() {
   box(renderDistance * 2, 275, renderDistance * 2);
   popMatrix();
   
-  fill(#21A520);
+  fill(#4BB509);
   for (int x = int(player.x - renderDistance); x < player.x + renderDistance; x += 5) {
     for (int z = int(player.z - renderDistance); z < player.z + renderDistance; z += 5) {
       beginShape(QUAD);
