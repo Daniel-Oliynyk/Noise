@@ -6,6 +6,8 @@ class Player {
   boolean grab = true;
   Robot rob;
   
+  int speed = 10;
+  
   void update() {
     float tempRadX = PI / 600 * (mouseX - 300);
     float headingX = (perRadX + tempRadX) % (PI * 2);
@@ -39,9 +41,10 @@ class Player {
     }
     
     int xDir = 0, yDir = 0;
+    float px = x, py = y, pz = z;
     
-    if (keys.contains(32)) y -= 20;
-    else if (keys.contains(16)) y += 20;
+    if (keys.contains(32)) y -= speed;
+    else if (keys.contains(16)) y += speed;
     
     if (keys.contains(87)) xDir = 1;
     if (keys.contains(68)) yDir = -1;
@@ -50,8 +53,14 @@ class Player {
     
     if (abs(xDir) + abs(yDir) > 0) {
       float walkAngle = headingX + (PI / -2 + atan2(xDir, yDir));
-      x = x + (20 * cos(walkAngle));
-      z = z + (20 * sin(walkAngle));
+      x = x + (speed * cos(walkAngle));
+      z = z + (speed * sin(walkAngle));
+    }
+    
+    if (map.checkCollision(x, y, z)) {
+      x = px;
+      y = py;
+      z = pz;
     }
   }
   

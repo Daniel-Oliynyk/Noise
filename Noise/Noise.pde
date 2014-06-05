@@ -3,7 +3,7 @@ import java.awt.*;
 Map map = new Map(600, 300);
 Player player = new Player();
 ArrayList keys = new ArrayList();
-int renderDistance = 600;
+int renderDistance = 2000;
 int maxHeight = 300;
 
 void setup() {
@@ -32,13 +32,17 @@ void draw() {
   popMatrix();
   
   fill(#4BB509);
-  for (int x = int(player.x - renderDistance); x < player.x + renderDistance; x += 5) {
-    for (int z = int(player.z - renderDistance); z < player.z + renderDistance; z += 5) {
+  int xInc = int(player.x - renderDistance) + 1 + abs(int((int(player.x - renderDistance) - player.x) / 15));
+  for (int x = int(player.x - renderDistance); x < player.x + renderDistance; x += xInc) {
+    xInc = 1 + abs(int((x - player.x) / 10));
+    int zInc = int(player.z - renderDistance) + 1 + abs(int((int(player.z - renderDistance) - player.z) / 15));
+    for (int z = int(player.z - renderDistance); z < player.z + renderDistance; z += zInc) {
+      zInc = 1 + abs(int((z - player.z) / 10));
       beginShape(QUAD);
       vertex(x, noise(x * 0.01, z * 0.01) * maxHeight, z);
-      vertex(x + 5, noise((x + 5) * 0.01, z * 0.01) * maxHeight, z);
-      vertex(x + 5, noise((x + 5) * 0.01, (z + 5) * 0.01) * maxHeight, z + 5);
-      vertex(x, noise(x * 0.01, (z + 5) * 0.01) * maxHeight, z + 5);
+      vertex(x + xInc, noise((x + xInc) * 0.01, z * 0.01) * maxHeight, z);
+      vertex(x + xInc, noise((x + xInc) * 0.01, (z + zInc) * 0.01) * maxHeight, z + zInc);
+      vertex(x, noise(x * 0.01, (z + zInc) * 0.01) * maxHeight, z + zInc);
       endShape(CLOSE);
     }
   }
