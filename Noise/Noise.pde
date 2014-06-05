@@ -32,12 +32,12 @@ void draw() {
   popMatrix();
   
   fill(#4BB509);
-  int xInc = int(player.x - renderDistance) + 1 + abs(int((int(player.x - renderDistance) - player.x) / 15));
+  int xInc = int(player.x - renderDistance) + 3 + abs(int((int(player.x - renderDistance) - player.x) / 30));
   for (int x = int(player.x - renderDistance); x < player.x + renderDistance; x += xInc) {
-    xInc = 1 + abs(int((x - player.x) / 10));
-    int zInc = int(player.z - renderDistance) + 1 + abs(int((int(player.z - renderDistance) - player.z) / 15));
+    xInc = 3 + abs(int((x - player.x) / 30));
+    int zInc = int(player.z - renderDistance) + 3 + abs(int((int(player.z - renderDistance) - player.z) / 30));
     for (int z = int(player.z - renderDistance); z < player.z + renderDistance; z += zInc) {
-      zInc = 1 + abs(int((z - player.z) / 10));
+      zInc = 3 + abs(int((z - player.z) / 30));
       beginShape(QUAD);
       vertex(x, noise(x * 0.01, z * 0.01) * maxHeight, z);
       vertex(x + xInc, noise((x + xInc) * 0.01, z * 0.01) * maxHeight, z);
