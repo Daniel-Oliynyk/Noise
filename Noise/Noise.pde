@@ -3,12 +3,13 @@ import java.awt.*;
 Map map = new Map(600, 300);
 Player player = new Player();
 ArrayList keys = new ArrayList();
+int renderDistance = 600;
+int maxHeight = 300;
 
 void setup() {
   size(600, 600, OPENGL);
   noiseDetail(3, 0.5);
   noCursor();
-  fill(0, 100, 0);
   
   try {
     player.rob = new Robot();
@@ -21,16 +22,22 @@ void setup() {
 void draw() {
   background(180);
   lights();
-  stroke(0);
   player.update();
   
-  for (int x = int(player.x - 300); x < player.x + 300; x += 5) {
-    for (int z = int(player.z - 300); z < player.z + 300; z += 5) {
+  fill(#1CFAE9);
+  pushMatrix();
+  translate(player.x, 300, player.z);
+  box(renderDistance * 2, 275, renderDistance * 2);
+  popMatrix();
+  
+  fill(#21A520);
+  for (int x = int(player.x - renderDistance); x < player.x + renderDistance; x += 5) {
+    for (int z = int(player.z - renderDistance); z < player.z + renderDistance; z += 5) {
       beginShape(QUAD);
-      vertex(x, noise(x * 0.01, z * 0.01) * 300, z);
-      vertex(x + 5, noise((x + 5) * 0.01, z * 0.01) * 300, z);
-      vertex(x + 5, noise((x + 5) * 0.01, (z + 5) * 0.01) * 300, z + 5);
-      vertex(x, noise(x * 0.01, (z + 5) * 0.01) * 300, z + 5);
+      vertex(x, noise(x * 0.01, z * 0.01) * maxHeight, z);
+      vertex(x + 5, noise((x + 5) * 0.01, z * 0.01) * maxHeight, z);
+      vertex(x + 5, noise((x + 5) * 0.01, (z + 5) * 0.01) * maxHeight, z + 5);
+      vertex(x, noise(x * 0.01, (z + 5) * 0.01) * maxHeight, z + 5);
       endShape(CLOSE);
     }
   }
