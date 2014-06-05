@@ -5,9 +5,10 @@ Player player = new Player();
 ArrayList keys = new ArrayList();
 
 void setup() {
-  size(600, 600, P3D);
+  size(600, 600, OPENGL);
   noiseDetail(3, 0.5);
   noCursor();
+  fill(0, 100, 0);
   
   try {
     player.rob = new Robot();
@@ -22,20 +23,15 @@ void draw() {
   lights();
   stroke(0);
   player.update();
-  /*
-  int inc = 1;
-  for (int x = 0; x < map.points.length; x = x + inc) {
-    for (int y = 0; y < map.points[0].length; y = y + inc) {
-      point(x, map.points[x][y], y);
-      inc = int(dist(x, map.points[x][y], y, player.x, player.y, player.z)) / 100;
-      if (inc <= 0) inc = 1;
-    }
-  }
-  */
   
-  for (int x = int(player.x - 300); x < player.x + 300; x += 2) {
-    for (int z = int(player.z - 300); z < player.z + 300; z += 2) {
-      point(x, noise(x * 0.01, z * 0.01) * 300, z);
+  for (int x = int(player.x - 300); x < player.x + 300; x += 5) {
+    for (int z = int(player.z - 300); z < player.z + 300; z += 5) {
+      beginShape();
+      vertex(x, noise(x * 0.01, z * 0.01) * 300, z);
+      vertex(x + 5, noise((x + 5) * 0.01, z * 0.01) * 300, z);
+      vertex(x, noise(x * 0.01, z * 0.01, (z + 5) * 0.01) * 300, z + 5);
+      vertex(x + 5, noise((x + 5) * 0.01, (z + 5) * 0.01) * 300, z + 5);
+      endShape();
     }
   }
 }
