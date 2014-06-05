@@ -26,12 +26,12 @@ void draw() {
   
   for (int x = int(player.x - 300); x < player.x + 300; x += 5) {
     for (int z = int(player.z - 300); z < player.z + 300; z += 5) {
-      beginShape();
+      beginShape(QUAD);
       vertex(x, noise(x * 0.01, z * 0.01) * 300, z);
       vertex(x + 5, noise((x + 5) * 0.01, z * 0.01) * 300, z);
-      vertex(x, noise(x * 0.01, z * 0.01, (z + 5) * 0.01) * 300, z + 5);
       vertex(x + 5, noise((x + 5) * 0.01, (z + 5) * 0.01) * 300, z + 5);
-      endShape();
+      vertex(x, noise(x * 0.01, (z + 5) * 0.01) * 300, z + 5);
+      endShape(CLOSE);
     }
   }
 }
