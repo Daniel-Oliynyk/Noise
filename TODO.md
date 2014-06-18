@@ -1,2 +1,22 @@
-To Do List
--[ ] Finish commenting player class.
+TODO LIST
+- [x] Comment map and main class.
+- [ ] Comment player class.
+- [ ] Finish map generation.
+  - [ ] Reduce lag and render distance.
+  - [ ] Make generation circular instead of linear.
+  - [ ] Make map generate larger and larger less detailed chunks as player moves farther away.
+  - [ ] Make collision more accurate.
+  - [ ] Make terrain change color with height (mountain peaks and beaches).
+- [ ] Add player controls.
+  - [ ] Add gravity on map.
+  - [ ] Make player collide when incline too high.
+  - [ ] Add jumping and sprinting.
+  - [ ] Add basic swimming.
+- [ ] Improve graphics.
+  - [ ] Find how to imput 3D models
+  - [ ] Add tree generation, begin looking at adding caves.
+  - [ ] Import designs for trees and maybe some bots.
+- [ ] Add bots.
+  - [ ] Create basic bot for bird (new class).
+  - [ ] Add flying patterns and collision.
+  - [ ] Explore other types of bots.
