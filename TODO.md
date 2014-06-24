@@ -13,7 +13,7 @@ TODO LIST
   - [ ] Add jumping and sprinting.
   - [ ] Add basic swimming.
 - [ ] Improve graphics.
-  - [ ] Find how to imput 3D models
+  - [ ] Find how to import 3D models.
   - [ ] Add tree generation, begin looking at adding caves.
   - [ ] Import designs for trees and maybe some bots.
 - [ ] Add bots.
