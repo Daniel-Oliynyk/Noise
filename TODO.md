@@ -1,6 +1,8 @@
 TODO LIST
-- [x] Comment map and main class.
-- [ ] Comment player class.
+- [ ] Organize code.
+  - [x] Comment map and main class.
+  - [ ] Comment player class.
+  - [ ] Convert all code to javascript.
 - [ ] Finish map generation.
   - [ ] Reduce lag and render distance.
   - [ ] Make generation circular instead of linear.
