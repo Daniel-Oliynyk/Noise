@@ -1,7 +1,7 @@
 TODO LIST
-- [ ] Organize code.
+- [x] Organize code.
   - [x] Comment map and main class.
-  - [ ] Comment player class.
+  - [x] Comment player class.
 - [ ] Finish map generation.
   - [ ] Reduce lag and render distance.
   - [ ] Make generation circular instead of linear.
