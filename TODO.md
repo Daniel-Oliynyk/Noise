@@ -1,9 +1,10 @@
-TODO LIST
+To Do List
+==========
 - [x] Organize code.
   - [x] Comment map and main class.
   - [x] Comment player class.
 - [ ] Finish map generation.
-  - [ ] Reduce lag and render distance.
+  - [x] Reduce lag and render distance.
   - [ ] Make generation circular instead of linear.
   - [ ] Make map generate larger and larger less detailed chunks as player moves farther away.
   - [ ] Make collision more accurate.
