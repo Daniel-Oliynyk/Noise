@@ -5,7 +5,7 @@ To Do List
   - [x] Comment player class.
 - [ ] Finish map generation.
   - [x] Reduce lag and render distance.
-  - [ ] Make generation circular instead of linear.
+  - [x] Make generation circular instead of linear.
   - [ ] Make map generate larger and larger less detailed chunks as player moves farther away.
   - [ ] Make collision more accurate.
   - [ ] Make terrain change color with height (mountain peaks and beaches).
