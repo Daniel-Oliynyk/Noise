@@ -1,6 +1,6 @@
 class Player {
   //Co-ordinates of player and looking direction
-  float x = 300, y = -300, z = 300;
+  float x, y, z;
   float perRadX, perRadY = PI / 2;
   
   //Controls mouse for player
@@ -71,12 +71,14 @@ class Player {
       float walkAngle = headingX + (PI / -2 + atan2(xDir, yDir));
       x = x + (speed * cos(walkAngle));
       z = z + (speed * sin(walkAngle));
+    }
+    
+    //Y has 50 added to it so player cannot see look bottom of map
+    if (map.checkCollision(x, y + 50, z)) {
       //If player collides, resets to previous co-ordinates
-      if (map.checkCollision(x, y, z)) {
-        x = px;
-        y = py;
-        z = pz;
-      }
+      x = px;
+      y = py;
+      z = pz;
     }
   }
   

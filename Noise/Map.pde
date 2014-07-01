@@ -2,8 +2,9 @@ class Map {
   
   //Change for different computer speeds
   int renderDistance = 1200;
-  int maxHeight = 300;
+  int maxHeight = 400;
   int points = 100;
+  float waterHeightPercent = 50;
   
   Map() {
     generate();
@@ -24,11 +25,13 @@ class Map {
   
   //Draws the map
   void drawMap() {
-    //Creates the water
+    //Calcuates the water height in relation to the maximum height
+    float waterHeight = maxHeight * (waterHeightPercent * 0.01);
+    //Creates the water, remember co-ordinates are center not corner
     fill(#1986E6);
     pushMatrix();
-    translate(player.x, 300, player.z);
-    box(renderDistance * 2, 275, renderDistance * 2);
+    translate(player.x, maxHeight - (waterHeight / 2), player.z);
+    box(renderDistance * 2, waterHeight, renderDistance * 2);
     popMatrix();
     
     fill(#4BB509);
