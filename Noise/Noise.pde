@@ -1,6 +1,6 @@
 import java.awt.*;
 
-Map map = new Map(600, 300);
+Map map = new Map();
 Player player = new Player();
 ArrayList keys = new ArrayList();
 
@@ -33,7 +33,7 @@ void draw() {
 void keyPressed() {
   //Puts keys in array
   if (!keys.contains(keyCode)) keys.add(keyCode);
-  if (keyCode == 70) map.generate(600, 300);
+  if (keyCode == 70) map.generate();
 }
 
 void keyReleased() {

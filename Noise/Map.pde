@@ -5,12 +5,12 @@ class Map {
   int maxHeight = 300;
   int points = 100;
   
-  Map(int square, int max) {
-    generate(square, max);
+  Map() {
+    generate();
   }
   
   //Creates a new seed on generation of map
-  void generate(int square, int max) {
+  void generate() {
     noiseSeed(int(random(255)));
   }
   
