@@ -6,8 +6,10 @@ To Do List
 - [ ] Finish map generation.
   - [x] Reduce lag and render distance.
   - [x] Make generation circular instead of linear.
+  - [x] Fix water height issues.
+  - [x] Make collision more accurate.
+  - [ ] Make terrain look smoother.
   - [ ] Make map generate larger and larger less detailed chunks as player moves farther away.
-  - [ ] Make collision more accurate.
   - [ ] Make terrain change color with height (mountain peaks and beaches).
 - [ ] Add player controls.
   - [ ] Add gravity on map.
