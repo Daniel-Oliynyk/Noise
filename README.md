@@ -1,7 +1,7 @@
 Noise
 =====
 
-Work in progress for 3D game
+Demo of the noise library in Processing implemented with 3D movement controls
 
 - F for new Perlin Noise map
 - WASD to fly
